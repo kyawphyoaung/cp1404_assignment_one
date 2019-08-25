@@ -11,3 +11,6 @@ This repo contains starter files including a Python file and two CSV files.
 
 2. What do you plan to do  differently in your development process for assignment 2?
 > Next Weeks
+
+My Github link
+`https://github.com/kyawphyoaung/cp1404_assignment_one`
