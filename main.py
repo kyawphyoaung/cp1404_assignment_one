@@ -24,6 +24,7 @@ sperate_places_list = []
 for i in range(len(place)):
     sperate_places_list.append(place[i].split(','))
 
+
 # Main Function including other many functions
 def main():
     userinput = menu()
@@ -58,7 +59,6 @@ def main():
     print("{} places saved to {}".format(len(sperate_places_list), DATAFILE))
     print("Have a nice day :)")
     sys.exit()
-
 
 
 # Show the MENU and ask the user to input
@@ -172,5 +172,6 @@ def mark_visisted():
     except ValueError:
         print("Invalid input; enter a valid number!")
         mark_visisted()
+
 
 main()
