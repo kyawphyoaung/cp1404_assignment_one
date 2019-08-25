@@ -2,7 +2,7 @@
 Name : Kyaw Phyo Aung
 Date : 23.7.2019
 Program Details : Travel Tacker
-Github link : www.github.com/
+Github link : https://github.com/kyawphyoaung/cp1404_assignment_one
 """
 import sys
 
@@ -92,7 +92,7 @@ def allplaces(sperate_places_list):
     if want_to_visit > 0:
         print(" {} places. You still want to visit {} places.".format(len(sperate_places_list), want_to_visit))
     else:
-        print(" {} places. No places left to visit. Why not add some more?".format(len(sperate_places_list)))
+        print(" {} places. No places left to visit. Why not add a new place?".format(len(sperate_places_list)))
     print("")
 
 
@@ -146,24 +146,29 @@ def priority_check():
 # Mark user visited place at list of places.csv file
 def mark_visisted():
     try:
-        want_to_visit = count_visit()
-        if want_to_visit > 0:
-            visited_place = int(input("Enter the number of a place to mark as visited :"))
-            while visited_place <= 0:
-                print("Number must be greater than zero")
+        valid = False
+        while not valid:
+            want_to_visit = count_visit()
+            if want_to_visit > 0:
                 visited_place = int(input("Enter the number of a place to mark as visited :"))
-            if visited_place <= len(sperate_places_list):
-                visited_place -= 1
-                if sperate_places_list[visited_place][3] != "v":
-                    sperate_places_list[visited_place][3] = 'v'
-                    print("{:<8} in {:<11} visited!".format(sperate_places_list[visited_place][0],
-                                                            sperate_places_list[visited_place][1]))
+                while visited_place <= 0:
+                    print("Number must be greater than zero")
+                    visited_place = int(input("Enter the number of a place to mark as visited :"))
+                if visited_place <= len(sperate_places_list):
+                    visited_place -= 1
+                    if sperate_places_list[visited_place][3] != "v":
+                        sperate_places_list[visited_place][3] = 'v'
+                        print("{:<8} in {:<11} visited!".format(sperate_places_list[visited_place][0],
+                                                                sperate_places_list[visited_place][1]))
+                        valid = True
+                    else:
+                        print("That place is already visited")
+                        valid = True
                 else:
-                    print("That place is already visited")
+                    print("Invalid place number")
             else:
-                print("Invalid place number")
-        else:
-            print("No Unvisited Places")
+                print("No Unvisited Places")
+                valid = True
     except ValueError:
         print("Invalid input; enter a valid number!")
         mark_visisted()
