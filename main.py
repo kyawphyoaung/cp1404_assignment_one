@@ -167,3 +167,5 @@ def mark_visisted():
     except ValueError:
         print("Invalid input; enter a valid number!")
         mark_visisted()
+
+main()
