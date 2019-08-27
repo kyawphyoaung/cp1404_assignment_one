@@ -72,13 +72,17 @@ def menu():
 def taken(elem):
     return elem[3]
 
+def priority_sort(elem):
+    return int(elem[2])
+
 
 # Show all places from list of places.csv file
 # Sort the places by unvisited place
 # Count visited place
 def allplaces(sperate_places_list):
+    sperate_places_list.sort(key=priority_sort)
+    sperate_places_list.sort(key=taken)
     for i in range(len(sperate_places_list)):
-        sperate_places_list.sort(key=taken)
         if sperate_places_list[i][3] == "n":
             print(
                 "*{}. {:<8} in {:<11} priority {}.".format(i + 1, sperate_places_list[i][0], sperate_places_list[i][1],
